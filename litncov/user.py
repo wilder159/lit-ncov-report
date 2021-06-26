@@ -127,11 +127,16 @@ class litUesr:
 
             if rtime == 1:
                 return True
-            elif (rtime == 2) & (self.last_record["temperatureTwo"] != ""):
-                return True
-            elif (rtime == 3) & (self.last_record["temperatureThree"] != ""):
+            elif ((rtime == 2) & (self.last_record["temperatureTwo"] == None))|((rtime == 2) & (self.last_record["temperatureTwo"] == "")):
+                print("true")
+                return False
+            elif ((rtime == 3) & (self.last_record["temperatureThree"] == None))|((rtime == 3) & (self.last_record["temperatureThree"] == "")):
+                print("true")
+                return False
+            else:
                 return True
         else:
+            print("false")
             return False
 
     def get_instructor(self):
